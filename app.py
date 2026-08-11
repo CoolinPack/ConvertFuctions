@@ -35,7 +35,7 @@ os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024  # 100MB
 
 # Категории форматов
-IMAGE_FORMATS = {'png', 'jpg', 'jpeg', 'gif', 'bmp', 'tiff', 'webp', 'ico', 'svg'}
+IMAGE_FORMATS = {'png', 'jpg', 'jpeg', 'gif', 'bmp', 'tiff', 'webp', 'ico', 'svg', 'heic'}
 DOCUMENT_FORMATS = {'pdf', 'doc', 'docx', 'odt', 'rtf', 'txt'}
 SPREADSHEET_FORMATS = {'xls', 'xlsx', 'ods', 'csv'}
 PRESENTATION_FORMATS = {'ppt', 'pptx', 'odp'}
