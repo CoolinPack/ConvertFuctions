@@ -46,11 +46,16 @@ ALL_FORMATS = IMAGE_FORMATS | DOCUMENT_FORMATS | SPREADSHEET_FORMATS | PRESENTAT
 # Матрица конвертации
 CONVERSION_MATRIX = {
     # Изображения
-    'image_to_image': ['png', 'jpg', 'jpeg', 'gif', 'bmp', 'webp', 'tiff', 'ico'],
-    'image_to_pdf': ['png', 'jpg', 'jpeg', 'gif', 'bmp', 'webp', 'tiff', 'ico'],
+    # Матрица конвертаций
+CONVERSION_MATRIX = {
+    # Изображения (включая HEIC)
+    'image_to_image': ['png', 'jpg', 'jpeg', 'gif', 'bmp', 'webp', 'tiff', 'ico', 'heic'],
+    'image_to_pdf': ['png', 'jpg', 'jpeg', 'gif', 'bmp', 'webp', 'tiff', 'ico', 'heic'],
     
     # PDF
-    'pdf_to_image': ['png', 'jpg', 'jpeg'],
+    'pdf_to_image': ['png', 'jpg', 'jpeg', 'heic'],  # можно конвертировать PDF в HEIC
+    # ... остальное без изменений
+}
     'pdf_to_text': ['txt'],
     'pdf_to_svg': ['svg'],
     'pdf_to_pdf': ['pdf'],
