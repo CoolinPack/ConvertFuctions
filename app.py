@@ -8,6 +8,7 @@ import uuid
 from pathlib import Path
 import time
 import json
+import magic  # ← Удалить эту строку
 from werkzeug.utils import secure_filename
 
 # Инициализация LibreOffice для Render
