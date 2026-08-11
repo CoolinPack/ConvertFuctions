@@ -1,6 +1,6 @@
 FROM python:3.11-slim
 
-# Установка системных зависимостей
+# Добавьте libmagic в список устанавливаемых пакетов
 RUN apt-get update && apt-get install -y \
     imagemagick \
     poppler-utils \
@@ -12,19 +12,13 @@ RUN apt-get update && apt-get install -y \
     pdf2svg \
     zip \
     unzip \
+    libmagic-dev \    # ← Добавьте эту строку
     && rm -rf /var/lib/apt/lists/*
 
-# Настройка ImageMagick политики (разрешаем все операции)
-RUN sed -i 's/<policy domain="path" rights="none" pattern="@\*"/<policy domain="path" rights="read|write" pattern="@\*"/' /etc/ImageMagick-6/policy.xml || true
-RUN sed -i 's/<policy domain="coder" rights="none" pattern="PDF"/<policy domain="coder" rights="read|write" pattern="PDF"/' /etc/ImageMagick-6/policy.xml || true
-
+# Остальное без изменений...
 WORKDIR /app
-
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
-
 COPY app.py .
-
 EXPOSE 5000
-
 CMD ["python", "app.py"]
