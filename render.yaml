@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: file-converter-api
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: TZ
+        value: UTC
+    autoDeploy: true
