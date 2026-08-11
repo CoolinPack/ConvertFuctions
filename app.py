@@ -11,6 +11,19 @@ import json
 import magic
 from werkzeug.utils import secure_filename
 
+# Инициализация LibreOffice для Render
+def init_libreoffice():
+    try:
+        subprocess.run([
+            'libreoffice', '--headless', '--nologo', '--norestore', 
+            '--invisible', '--nofirststartwizard', '--accept=socket,host=localhost,port=2002;urp;'
+        ], timeout=10, capture_output=True)
+    except:
+        pass  # Игнорируем ошибки инициализации
+
+# Вызов при старте
+init_libreoffice()
+
 app = Flask(__name__)
 CORS(app)
 
